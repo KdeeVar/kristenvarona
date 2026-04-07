@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KDee — Senior Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0A0A0A;
+  --paper: #F5F7FA;
+  --white: #FFFFFF;
+  --accent: #3B6CB7;
+  --accent-dim: #1A2E50;
+  --dark: #0F1923;
+  --dark2: #182433;
+  --muted: #7A8799;
+  --border: #DDE2EA;
+  --border-dark: #1E3048;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+nav{position:sticky;top:0;z-index:100;background:var(--dark);border-bottom:1px solid #1E3048;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:52px;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.08em;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#8FA3B8;text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:6px 16px;transition:all 0.2s;}
+.nav-cta:hover{background:var(--accent);color:var(--white);}
+
+.hero{background:var(--dark);min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 3.5rem;position:relative;overflow:hidden;border-bottom:1px solid #1E3048;}
+.hero-bg-text{position:absolute;top:50%;left:-0.02em;transform:translateY(-54%);font-family:'Bebas Neue',sans-serif;font-size:clamp(160px,20vw,320px);line-height:1;color:transparent;-webkit-text-stroke:1px #1E3048;pointer-events:none;white-space:nowrap;letter-spacing:-0.01em;user-select:none;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:12px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,136px);line-height:0.88;letter-spacing:0.01em;color:var(--white);margin-bottom:2.5rem;}
+h1 em{color:var(--accent);font-style:normal;}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+.hero-description{font-size:16px;color:#B8C8D8;font-weight:300;max-width:440px;line-height:1.85;}
+.hero-description strong{color:#D4E2EE;font-weight:400;}
+.hero-actions{display:flex;gap:1rem;flex-shrink:0;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--white);padding:13px 28px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s,transform 0.15s;}
+.btn-primary:hover{opacity:0.88;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid #1E3A5C;color:#8FA3B8;padding:13px 28px;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.15s;}
+.btn-ghost:hover{border-color:#8FA3B8;color:var(--white);transform:translateY(-1px);}
+
+.ticker-wrap{background:var(--accent);overflow:hidden;padding:11px 0;border-bottom:1px solid var(--border);}
+.ticker-track{display:flex;width:max-content;animation:ticker 30s linear infinite;}
+.ticker-item{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);white-space:nowrap;padding:0 2.5rem;display:flex;align-items:center;gap:2.5rem;}
+.ticker-item::after{content:'✦';font-size:8px;opacity:0.7;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark);border-bottom:1px solid #1E3048;}
+.stat{padding:2.75rem 3rem;border-right:1px solid var(--border-dark);}
+.stat:last-child{border-right:none;}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;color:var(--white);margin-bottom:8px;}
+.stat-number sup{color:var(--accent);font-size:36px;vertical-align:top;margin-top:6px;display:inline-block;}
+.stat-label{font-size:12px;color:#8FA3B8;letter-spacing:0.04em;line-height:1.5;}
+
+section{padding:5rem 3rem;border-bottom:1px solid var(--border);}
+.section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,64px);letter-spacing:0.02em;line-height:0.95;color:var(--ink);margin-bottom:3.5rem;}
+
+.about-grid{display:grid;grid-template-columns:1fr 380px;gap:6rem;align-items:start;}
+.about-text p{font-size:17px;font-weight:300;color:#7A9AB5;line-height:1.9;margin-bottom:1.25rem;}
+.about-text p:last-child{margin-bottom:0;}
+.about-text strong{color:var(--ink);font-weight:500;}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);}
+.pillar{background:var(--white);padding:1.25rem;transition:background 0.2s;}
+.pillar:hover{background:var(--ink);}
+.pillar:hover .pillar-num{color:var(--accent);}
+.pillar:hover .pillar-name{color:var(--white);}
+.pillar-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-bottom:5px;}
+.pillar-name{font-size:13px;font-weight:500;color:var(--ink);}
+
+#case-studies{padding-left:0;padding-right:0;background:var(--dark);border-bottom:1px solid #1E3048;}
+#case-studies .section-label{color:var(--accent);padding:0 3rem;}
+#case-studies h2{color:var(--white);padding:0 3rem;}
+.cs-grid{display:flex;flex-direction:column;}
+.cs-row{display:grid;grid-template-columns:56px 260px 1fr 52px;border-top:1px solid var(--border-dark);cursor:pointer;transition:background 0.2s;position:relative;align-items:stretch;}
+.cs-row:last-child{border-bottom:1px solid #1E3048;}
+.cs-row:hover{background:#182433;}
+.cs-row.open{background:#161616;}
+.cs-index{font-family:'DM Mono',monospace;font-size:11px;color:#7A9AB5;padding:2.75rem 0 2.75rem 3rem;display:flex;align-items:flex-start;}
+.cs-row.open .cs-index{color:var(--accent);}
+.cs-left{padding:2.5rem 2rem 2.5rem 1.5rem;border-right:1px solid var(--border-dark);display:flex;flex-direction:column;justify-content:flex-start;}
+.cs-co{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#6E8FAD;margin-bottom:0.5rem;}
+.cs-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.02em;color:var(--white);line-height:1.05;margin-bottom:0.6rem;}
+.cs-row.open .cs-name{color:var(--accent);}
+.cs-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:1rem;}
+.tag{font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:#162030;color:#8FA3B8;padding:3px 10px;border:1px solid #1E3048;border-radius:999px;}
+.cs-row.open .tag{border-color:#1A3A5C;color:#B8C8D8;}
+.cs-preview{padding:2.75rem 2.5rem;display:flex;flex-direction:column;justify-content:flex-start;}
+.cs-teaser{font-size:14px;color:#9BAFC2;font-weight:300;line-height:1.75;max-width:520px;}
+.cs-row.open .cs-teaser{display:none;}
+.cs-expand-body{display:none;}
+.cs-row.open .cs-expand-body{display:block;}
+.cs-block-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;margin-top:1.5rem;}
+.cs-block-title:first-child{margin-top:0;}
+.cs-expand-body p{font-size:14px;color:#B8C8D8;font-weight:300;line-height:1.8;margin-bottom:0.6rem;}
+.cs-expand-body ul{list-style:none;}
+.cs-expand-body ul li{font-size:14px;color:#B8C8D8;font-weight:300;line-height:1.8;padding-left:1.25rem;position:relative;margin-bottom:0.35rem;}
+.cs-expand-body ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;}
+.cs-expand-body strong{color:#D4E2EE;font-weight:500;}
+.cs-result{margin-top:1.5rem;padding:1.1rem 1.4rem;border-left:2px solid var(--accent);background:rgba(59,108,183,0.12);}
+.cs-result p{color:#ddd !important;font-size:13px !important;margin:0 !important;}
+.cs-result strong{color:var(--accent) !important;}
+.cs-toggle-btn{border-left:1px solid var(--border-dark);display:flex;align-items:flex-start;justify-content:center;padding-top:2.6rem;font-family:'DM Mono',monospace;font-size:20px;color:#4A6A8A;background:transparent;border-top:none;border-right:none;border-bottom:none;cursor:pointer;transition:color 0.2s;width:52px;}
+.cs-row.open .cs-toggle-btn{color:var(--accent);}
+
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);}
+.project-card{background:var(--white);padding:2.5rem;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);transition:background 0.2s;}
+.project-card:hover::before{background:var(--accent);}
+.project-card.wip{background:#F9F7F4;}
+.project-badge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;margin-bottom:1.25rem;}
+.badge-live{color:#2E9E5B;}
+.badge-live::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#2E9E5B;animation:pulse 2s ease-in-out infinite;}
+.badge-wip{color:var(--muted);}
+.badge-wip::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--muted);}
+.project-name{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:0.02em;line-height:1;color:var(--ink);margin-bottom:0.6rem;}
+.project-suite{font-size:12px;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.project-desc{font-size:14px;color:#777;font-weight:300;line-height:1.8;flex:1;margin-bottom:1.5rem;}
+.project-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.5rem;}
+.project-tag{font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--paper);color:var(--muted);padding:3px 10px;border:1px solid var(--border);border-radius:999px;}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);background:var(--ink);padding:10px 20px;text-decoration:none;align-self:flex-start;transition:background 0.2s;}
+.project-link:hover{background:var(--accent);}
+.project-link-disabled{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:10px 20px;align-self:flex-start;}
+
+.history-list{display:flex;flex-direction:column;}
+.history-item{display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:baseline;padding:1.75rem 0;border-bottom:1px solid var(--border);}
+.history-item:first-child{border-top:1px solid var(--border);}
+.history-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;}
+.history-role{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.history-company{font-size:13px;color:var(--muted);font-weight:300;}
+
+#consulting{background:var(--dark);border-bottom:1px solid #1E3048;}
+#consulting .section-label{color:var(--accent);}
+#consulting h2{color:var(--white);}
+.consulting-intro{font-size:17px;font-weight:300;color:#9BAFC2;line-height:1.9;max-width:640px;margin-bottom:3rem;}
+.client-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border-dark);border:1px solid var(--border-dark);}
+.client-cell{background:#182433;padding:1.5rem 1.75rem;font-size:14px;font-weight:400;color:#B8C8D8;transition:background 0.2s,color 0.2s;}
+.client-cell:hover{background:var(--accent-dim);color:#D4E2EE;}
+
+footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border-dark);}
+.footer-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.06em;color:var(--white);}
+.footer-name span{color:var(--accent);}
+.footer-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#8FA3B8;text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--accent);}
+.footer-available{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--accent);display:flex;align-items:center;gap:8px;}
+.footer-available::before{content:'';display:block;width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
+
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:0 1.5rem 2.5rem;}
+  .stats{grid-template-columns:1fr;}
+  .stat{border-right:none;border-bottom:1px solid #1E3048;padding:2rem 1.5rem;}
+  .stat:last-child{border-bottom:none;}
+  section{padding:3rem 1.5rem;}
+  #case-studies .section-label,#case-studies h2{padding:0 1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .cs-row{grid-template-columns:40px 1fr 40px;}
+  .cs-left{display:none;}
+  .cs-index{padding:2rem 0 2rem 1.5rem;}
+  .cs-preview{padding:2rem 1.5rem;}
+  .cs-toggle-btn{width:40px;}
+  .projects-grid{grid-template-columns:1fr;}
+  .history-item{grid-template-columns:1fr;gap:0.2rem;}
+  footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">K<span>.</span>DEE</a>
+  <ul class="nav-links">
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#history">Experience</a></li>
+    <li><a href="#consulting">Consulting</a></li>
+  </ul>
+  <a href="mailto:your@email.com" class="nav-cta">Available for hire</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg-text">SENIOR PRODUCT MANAGER</div>
+  <div class="hero-eyebrow">Senior Product Manager · Scottsdale, AZ · Remote</div>
+  <h1>KDEE<br><em>BUILDS</em><br>PRODUCTS<em>.</em></h1>
+  <div class="hero-bottom">
+    <p class="hero-description">30 years at the intersection of <strong>technology, business, and user need</strong> — from enterprise retail platforms serving millions of transactions to bootstrapped SaaS built from zero. Technical fluency. Strategic clarity. Bias toward shipping.</p>
+    <div class="hero-actions">
+      <a href="#case-studies" class="btn-primary">Case Studies →</a>
+      <a href="mailto:your@email.com" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Senior Product Manager</span>
+    <span class="ticker-item">SaaS · 0→1</span>
+    <span class="ticker-item">Retail Technology</span>
+    <span class="ticker-item">Workflow Systems</span>
+    <span class="ticker-item">Technically Fluent</span>
+    <span class="ticker-item">Program Leadership</span>
+    <span class="ticker-item">AI-Native Development</span>
+    <span class="ticker-item">Patented Architecture</span>
+    <span class="ticker-item">Senior Product Manager</span>
+    <span class="ticker-item">SaaS · 0→1</span>
+    <span class="ticker-item">Retail Technology</span>
+    <span class="ticker-item">Workflow Systems</span>
+    <span class="ticker-item">Technically Fluent</span>
+    <span class="ticker-item">Program Leadership</span>
+    <span class="ticker-item">AI-Native Development</span>
+    <span class="ticker-item">Patented Architecture</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat fade-up">
+    <div class="stat-number">30<sup>+</sup></div>
+    <div class="stat-label">Years building products across enterprise and startup</div>
+  </div>
+  <div class="stat fade-up" style="transition-delay:0.1s">
+    <div class="stat-number">1<sup>✦</sup></div>
+    <div class="stat-label">Patent — flexible board architecture for workflow SaaS</div>
+  </div>
+  <div class="stat fade-up" style="transition-delay:0.2s">
+    <div class="stat-number">5</div>
+    <div class="stat-label">Domains: SaaS · Retail · Workflow · Enterprise · AI</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">00 — About</div>
+  <h2>Product Leader.<br>Technical Founder.<br>Builder.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Senior Product Manager with 30 years of experience spanning software development, enterprise architecture, SaaS co-founding, and product leadership. I've held CTO, founder, and Product Manager roles — sometimes simultaneously — and I bring the technical fluency to own both the problem definition and the path to solution.</p>
+      <p>My deepest domain expertise is in <strong>retail technology</strong> — POS systems, pricing engines, payments, taxes, and fiscal compliance — built through nearly a decade at Blue Yonder (JDA Software) and enterprise engagements across North America and Latin America. I also co-founded <strong>Kanban Zone</strong>, a workflow SaaS platform, from zero to profitability, and hold a patent on its core board architecture.</p>
+      <p>I believe product management is about making the right things real. That means saying no as clearly as saying yes, writing the story before writing the code, and treating delivery as a craft — not a coordination tax.</p>
+    </div>
+    <div>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">SaaS & 0→1</div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Retail Technology</div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Workflow Systems</div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Technically Fluent</div></div>
+        <div class="pillar"><div class="pillar-num">05</div><div class="pillar-name">Program Leadership</div></div>
+        <div class="pillar"><div class="pillar-num">06</div><div class="pillar-name">AI-Native Dev</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-studies">
+  <div class="section-label">01 — Case Studies</div>
+  <h2>Selected Work.</h2>
+  <div class="cs-grid">
+
+    <div class="cs-row" onclick="toggleCS(this)">
+      <div class="cs-index">01</div>
+      <div class="cs-left">
+        <div class="cs-co">E-Commerce · Supplements</div>
+        <div class="cs-name">Plexus Worldwide</div>
+        <div class="cs-tags">
+          <span class="tag">Product Leadership</span><span class="tag">Program Mgmt</span><span class="tag">Delivery</span><span class="tag">Agile Forecasting</span>
+        </div>
+      </div>
+      <div class="cs-preview">
+        <p class="cs-teaser">Led enterprise-wide platform modernization for a direct sales e-commerce company — absorbed a mid-project Japan market expansion, built the backlog from zero, and shipped the full program in 14 months.</p>
+        <div class="cs-expand-body">
+          <div class="cs-block-title">The Problem</div>
+          <p>Plexus Worldwide was mid-stream on an enterprise-wide platform modernization with multiple active engineering workstreams. My team owned the new infrastructure everything else depended on — and had an empty backlog when I arrived. Existing systems had to stay operational, the business was eager for progress, and legacy platform enhancements were being requested in parallel. Six months in, a Japan market expansion was added to the scope with a non-negotiable deadline.</p>
+          <div class="cs-block-title">What I Did</div>
+          <ul>
+            <li>Worked with architecture to establish what had been built, the target state, and the actual critical path</li>
+            <li>Built the backlog from scratch — gave a nine-person team of local, offshore, and contract engineers clear prioritized direction for the first time in the engagement</li>
+            <li>Maintained a living roadmap, honest about what was coming, what was at risk, and why</li>
+            <li>Used agile forecasting to show program management velocity, delivery timing, and dependency unblocking — real metrics, not status theater</li>
+            <li>When Japan was added mid-stream, absorbed the scope and re-sequenced priorities without collapsing the original timeline</li>
+            <li>Managed the ongoing prioritization tension between modernization work and legacy enhancement demands from a business with limited patience</li>
+          </ul>
+          <div class="cs-result"><p><strong>Outcome:</strong> Full platform modernization shipped in 14 months. Japan market expansion delivered concurrently. The business had working software.</p></div>
+          <div class="cs-block-title" style="margin-top:1.5rem">What This Demonstrates</div>
+          <p>The ability to establish clarity and drive delivery across a complex multi-team program — using agile practices as real management tools, not process overhead.</p>
+        </div>
+      </div>
+      <button class="cs-toggle-btn" onclick="toggleCS(this.closest('.cs-row'));event.stopPropagation()">+</button>
+    </div>
+
+    <div class="cs-row" onclick="toggleCS(this)">
+      <div class="cs-index">02</div>
+      <div class="cs-left">
+        <div class="cs-co">SaaS · Workflow · Co-founder</div>
+        <div class="cs-name">Kanban Zone</div>
+        <div class="cs-tags">
+          <span class="tag">SaaS</span><span class="tag">0→1</span><span class="tag">Workflow</span><span class="tag">Technically Fluent</span>
+        </div>
+      </div>
+      <div class="cs-preview">
+        <p class="cs-teaser">Co-founded and built a workflow SaaS from zero — patented the core board architecture, owned the full product surface as CTO and Product Manager, grew to 3,000+ users on a bootstrapped budget.</p>
+        <div class="cs-expand-body">
+          <div class="cs-block-title">The Problem</div>
+          <p>Enterprise agile transformations hit a consistent wall: coaches could design the right workflow on a whiteboard, but no tool could replicate it digitally. Kanban boards were universally flat — one-dimensional grids that couldn't model how real work actually moves through an organization. Teams were forced to compromise their process to fit their tool.</p>
+          <div class="cs-block-title">What I Did</div>
+          <ul>
+            <li>Designed and <strong>patented</strong> a flexible board engine — nested swimlanes, non-linear flows, multi-dimensional layouts — requiring a fundamental rethink of the underlying data model</li>
+            <li>Owned the full product surface: customer discovery, feature prioritization, UX design, story writing, and acceptance criteria</li>
+            <li>Learned the MERN stack and AWS to close the gap between architectural decisions and engineering execution — and shipped fixes myself when speed mattered</li>
+            <li>Averaged multiple deploys per day using feature toggles, keeping bug response time under two hours</li>
+            <li>Diagnosed a conversion drop-off, redesigned and simplified the subscription model, and shipped the change</li>
+            <li>Declined to build a full project management feature set requested by a significant client — it would have compromised the product's identity as a lean workflow tool. The product stayed coherent.</li>
+          </ul>
+          <div class="cs-result"><p><strong>Outcome:</strong> Grew to 3,000+ users — primarily teams of 30–50 members — five-star support rating throughout. Reached profitability on a bootstrapped budget. I exited to pursue other opportunities; the business continues to operate.</p></div>
+          <div class="cs-block-title" style="margin-top:1.5rem">What This Demonstrates</div>
+          <p>The ability to hold CTO, Product Manager, and founder responsibilities simultaneously — and to use technical depth as a product advantage, not a distraction. Including knowing when to say no to a paying customer.</p>
+        </div>
+      </div>
+      <button class="cs-toggle-btn" onclick="toggleCS(this.closest('.cs-row'));event.stopPropagation()">+</button>
+    </div>
+
+    <div class="cs-row" onclick="toggleCS(this)">
+      <div class="cs-index">03</div>
+      <div class="cs-left">
+        <div class="cs-co">Consumer SaaS · AI-Native</div>
+        <div class="cs-name">TrailOS / WildLog</div>
+        <div class="cs-tags">
+          <span class="tag">Product Strategy</span><span class="tag">0→1</span><span class="tag">AI Features</span><span class="tag">Consumer SaaS</span>
+        </div>
+      </div>
+      <div class="cs-preview">
+        <p class="cs-teaser">Defined and launched a three-product outdoor adventure SaaS suite — ran full product strategy before writing a line of code, shipped WildLog with AI-powered reporting as the live anchor product.</p>
+        <div class="cs-expand-body">
+          <div class="cs-block-title">The Problem</div>
+          <p>Adventure memories have a fragmentation problem. Photos live in camera rolls with no context. Trip details disappear into social feeds with no personal reference. Gear accumulates with no system. Planning happens in notes apps and group chats. Nothing connects.</p>
+          <div class="cs-block-title">What I Did</div>
+          <ul>
+            <li>Ran a full product process before writing code: market research, audience definition, competitive landscape analysis, product vision, and MVP scoping</li>
+            <li>Defined the TrailOS suite — WildLog (adventure journal), PackMind (gear management), TripForge (trip planning) — and sequenced WildLog first deliberately: without a log of past adventures, gear management and trip planning have no anchor</li>
+            <li>Built using Claude and a modern, maintainable web stack — prioritizing technology I could own long-term over novelty</li>
+            <li>Shipped AI capability directly to users: the <strong>Generate Report</strong> feature uses AI to transform unstructured adventure logs into coherent, shareable summaries</li>
+            <li>Launched as live SaaS with analytics and SEO instrumented from day one; social sharing emerging as primary organic growth driver</li>
+          </ul>
+          <div class="cs-result"><p><strong>Outcome:</strong> WildLog is live. Generate Report ships AI as product value — not just a development tool. Early social sharing signals are informing acquisition strategy for the next phase.</p></div>
+          <div class="cs-block-title" style="margin-top:1.5rem">What This Demonstrates</div>
+          <p>The full product strategy arc — market validation, competitive analysis, audience definition, MVP scoping, and live launch — executed independently using current AI-native development practices.</p>
+        </div>
+      </div>
+      <button class="cs-toggle-btn" onclick="toggleCS(this.closest('.cs-row'));event.stopPropagation()">+</button>
+    </div>
+
+    <div class="cs-row" onclick="toggleCS(this)">
+      <div class="cs-index">04</div>
+      <div class="cs-left">
+        <div class="cs-co">Enterprise Retail · POS</div>
+        <div class="cs-name">Blue Yonder</div>
+        <div class="cs-tags">
+          <span class="tag">Retail Tech</span><span class="tag">Enterprise</span><span class="tag">Domain Depth</span><span class="tag">Technically Fluent</span>
+        </div>
+      </div>
+      <div class="cs-preview">
+        <p class="cs-teaser">Nearly a decade building enterprise POS customizations for major North American and Latin American retailers — pricing engines, loyalty systems, multi-jurisdiction tax compliance, and a 7-hour → 7-minute performance overhaul.</p>
+        <div class="cs-expand-body">
+          <div class="cs-block-title">The Problem</div>
+          <p>Large-format retailers needed complex, rules-based customizations the core platform couldn't deliver — kit pricing engines, loyalty integrations, multi-jurisdiction tax logic, and integrated payment systems. Zero-defect-tolerance environment: a pricing error means immediate, measurable revenue impact at every register.</p>
+          <div class="cs-block-title">Key Engagements</div>
+          <ul>
+            <li><strong>Cabela's — Kit Pricing Rules Engine.</strong> Designed and built a custom pricing rules engine for complex bundling logic: conditional item combinations, brand-specific eligibility, price-ceiling constraints, and substitution rules. Deterministic, auditable, performant at transaction speed.</li>
+            <li><strong>Batch Processing Overhaul.</strong> Inherited a nightly inventory and pricing push to stores consuming seven hours. Diagnosed synchronous threading as root cause. Re-architected with multi-threading. Runtime: <strong>7 hours → 7 minutes</strong>. Solo delivery on an unfamiliar stack.</li>
+            <li><strong>Office Depot Latin America.</strong> Maintained codebases for three retail chains — Office Depot, RadioShack, and Marchand (Grupo Gigante) — across multiple Latin American countries. Managed competing priorities, packaged releases, and delivered country-specific fiscal reporting upgrades against hard compliance dates.</li>
+          </ul>
+          <div class="cs-result"><p><strong>Outcome:</strong> Production systems serving millions of transactions. The batch optimization alone reclaimed six-plus hours of nightly processing time across an entire store network.</p></div>
+          <div class="cs-block-title" style="margin-top:1.5rem">What This Demonstrates</div>
+          <p>Deep retail technology domain expertise — pricing, taxes, loyalty, payments, fiscal compliance — with the technical fluency to own both problem definition and solution.</p>
+        </div>
+      </div>
+      <button class="cs-toggle-btn" onclick="toggleCS(this.closest('.cs-row'));event.stopPropagation()">+</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">02 — Current Projects</div>
+  <h2>What I'm<br>Building Now.</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-badge badge-live">Live · SaaS</div>
+      <div class="project-name">WildLog</div>
+      <div class="project-suite">TrailOS Suite — Product 1 of 3</div>
+      <p class="project-desc">An adventure journal that captures where you went, what you did, and what you brought — so your best outdoor memories don't disappear into a camera roll or a social feed. Includes AI-powered Generate Report, turning raw trip logs into shareable summaries.</p>
+      <div class="project-tags">
+        <span class="project-tag">Consumer SaaS</span>
+        <span class="project-tag">AI Features</span>
+        <span class="project-tag">Web App</span>
+        <span class="project-tag">SEO</span>
+      </div>
+      <a href="#" class="project-link">Visit WildLog →</a>
+    </div>
+    <div class="project-card wip">
+      <div class="project-badge badge-wip">In Development</div>
+      <div class="project-name">TripForge</div>
+      <div class="project-suite">TrailOS Suite — Product 2 of 3</div>
+      <p class="project-desc">AI-assisted trip planning for outdoor adventurers. Builds on your WildLog history to help you plan smarter — routes, gear lists, timing, and conditions — informed by what you've actually done before. The second product in the TrailOS suite.</p>
+      <div class="project-tags">
+        <span class="project-tag">Trip Planning</span>
+        <span class="project-tag">AI-Assisted</span>
+        <span class="project-tag">TrailOS Suite</span>
+      </div>
+      <span class="project-link-disabled">Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <div class="section-label">03 — Experience</div>
+  <h2>Work History.</h2>
+  <div class="history-list">
+    <div class="history-item fade-up">
+      <div class="history-date">2024 — Present</div>
+      <div><div class="history-role">Founder & Product Manager — TrailOS</div><div class="history-company">Blue Drop Solutions · Scottsdale, AZ</div></div>
+    </div>
+    <div class="history-item fade-up">
+      <div class="history-date">2022 — 2023</div>
+      <div><div class="history-role">Manager, DevOps & Product Manager</div><div class="history-company">Plexus Worldwide · Scottsdale, AZ</div></div>
+    </div>
+    <div class="history-item fade-up">
+      <div class="history-date">2017 — 2024</div>
+      <div><div class="history-role">Co-founder, CTO & Product Manager</div><div class="history-company">Kanban Zone · Remote</div></div>
+    </div>
+    <div class="history-item fade-up">
+      <div class="history-date">2010 — Present</div>
+      <div><div class="history-role">Principal Consultant</div><div class="history-company">Blue Drop Solutions · Scottsdale, AZ</div></div>
+    </div>
+    <div class="history-item fade-up">
+      <div class="history-date">2000 — 2010</div>
+      <div><div class="history-role">Consulting Programmer → Senior Consultant</div><div class="history-company">JDA Software (now Blue Yonder) · Scottsdale, AZ</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="consulting">
+  <div class="section-label">04 — Consulting</div>
+  <h2>Blue Drop<br>Solutions.</h2>
+  <p class="consulting-intro">Agile transformation, DevOps enablement, and product advisory for enterprise organizations. I work with companies navigating the gap between where their teams are and where their products need to go.</p>
+  <div class="client-grid">
+    <div class="client-cell">American Express</div>
+    <div class="client-cell">Best Western International</div>
+    <div class="client-cell">Blue Cross Blue Shield of AZ</div>
+    <div class="client-cell">Morgan Stanley</div>
+    <div class="client-cell">TriWest Healthcare Alliance</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">K<span>.</span>DEE</div>
+  <ul class="footer-links">
+    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+    <li><a href="mailto:your@email.com">Email</a></li>
+  </ul>
+  <div class="footer-available">Available for Senior Product Manager roles</div>
+</footer>
+
+<script>
+function toggleCS(row){
+  const isOpen=row.classList.contains('open');
+  document.querySelectorAll('.cs-row').forEach(r=>{r.classList.remove('open');r.querySelector('.cs-toggle-btn').textContent='+';});
+  if(!isOpen){row.classList.add('open');row.querySelector('.cs-toggle-btn').textContent='×';}
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
