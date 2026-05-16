@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kristen Steffler Varona — Engineering Manager · Senior Product Manager</title>
   <meta name="description" content="Engineering Manager and Senior Product Manager — 30 years building products and leading teams across enterprise retail, SaaS, and startup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kdeevar.github.io/kristenvarona/">
+  <meta property="og:title" content="Kristen Steffler Varona — Engineering Manager · Senior Product Manager">
+  <meta property="og:description" content="30 years across engineering, architecture, and product — execution-driven, AI-native, 2× founder. Teams that actually ship.">
+  <meta property="og:image" content="https://kdeevar.github.io/kristenvarona/kristenvarona-pic.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kristen Steffler Varona — Engineering Manager · Senior Product Manager">
+  <meta name="twitter:description" content="30 years across engineering, architecture, and product — execution-driven, AI-native, 2× founder. Teams that actually ship.">
+  <meta name="twitter:image" content="https://kdeevar.github.io/kristenvarona/kristenvarona-pic.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23111'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' font-size='13' fill='%23fff'%3EKV%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +59,29 @@
       text-decoration: none; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--ink); }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      margin-right: -6px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 20px; height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      transform-origin: center;
+    }
+    nav.open .nav-hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    nav.open .nav-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    nav.open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* ── HERO ── */
     .hero-wrap {
@@ -171,7 +203,7 @@
 
     .cs-role {
       font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--label); margin-bottom: 0.35rem;
     }
     .cs-name {
@@ -296,6 +328,16 @@
     }
     .project-link:hover { opacity: 0.55; }
 
+    .linkedin-aside {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 0.08em;
+      color: var(--muted); text-decoration: none;
+      margin-top: -2rem; margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+    .linkedin-aside:hover { color: var(--label); }
+
     /* ── EXPERIENCE ── */
     .exp-list { display: flex; flex-direction: column; }
     .exp-item {
@@ -357,7 +399,21 @@
     /* ── RESPONSIVE ── */
     @media(max-width:900px) {
       nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 56px; left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 0.25rem 1.5rem 0.75rem;
+        z-index: 99;
+      }
+      nav.open .nav-links { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 0.85rem 0; font-size: 15px; }
       .hero { grid-template-columns: 1fr; padding: 3.5rem 1.5rem 3rem; gap: 2.5rem; }
       .hero-photo { width: 160px; height: 160px; }
       .stats { grid-template-columns: 1fr 1fr; }
@@ -384,6 +440,9 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="https://www.linkedin.com/in/kristen-varona-ba53a51/" target="_blank">LinkedIn</a></li>
   </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -411,8 +470,8 @@
     <div class="stat-label">Years across engineering, architecture &amp; product</div>
   </div>
   <div class="stat">
-    <div class="stat-number">Profitable</div>
-    <div class="stat-label">Bootstrapped SaaS — Kanban Zone, as CTO &amp; Product Manager</div>
+    <div class="stat-number">2×</div>
+    <div class="stat-label">Companies founded — Kanban Zone bootstrapped to profitability as CTO &amp; PM</div>
   </div>
   <div class="stat">
     <div class="stat-number">14mo</div>
@@ -516,7 +575,7 @@
       <!-- 04 TrailOS -->
       <div class="cs-card">
         <div class="cs-role">Founder &amp; Head of Product</div>
-        <div class="cs-name">TrailOS — WildLog &amp; TripForge</div>
+        <div class="cs-name">TrailOS</div>
         <div class="cs-sub">Consumer SaaS · AI-Native · Live</div>
         <p class="cs-summary">Defined and launched a two-product outdoor adventure SaaS suite — ran full product strategy before writing a line of code, sequenced the products deliberately, and shipped both as a fully integrated, live system. Solo.</p>
         <div class="cs-tags">
@@ -535,7 +594,7 @@
             <li>Launched with analytics, SEO, user insights, and social sharing instrumented from day one</li>
             <li>Shipped the full integrated suite solo using current AI-native development practices</li>
           </ul>
-          <div class="cs-result"><p><strong>Outcome:</strong> WildLog and TripForge are live, AI-enabled, and integrated. Built and shipped solo — from product strategy to production.</p></div>
+          <div class="cs-result"><p><strong>Outcome:</strong> TripForge and WildLog are live, AI-enabled, and integrated. Built and shipped solo — from product strategy to production.</p></div>
         </div>
       </div>
 
@@ -555,11 +614,11 @@
         <div class="project-suite">TrailOS Suite · Product 1 of 3</div>
         <p class="project-desc">An adventure journal that captures where you went, what you did, and what you saw — AI-powered Generate Report turns raw trail notes into a coherent, shareable story. Analytics and social sharing instrumented from day one.</p>
         <div class="project-tags">
-          <span class="project-tag">Consumer SaaS</span>
-          <span class="project-tag">AI Features</span>
-          <span class="project-tag">SEO</span>
+          <span class="project-tag">0→1</span>
+          <span class="project-tag">AI-Powered</span>
+          <span class="project-tag">Solo Build</span>
         </div>
-        <a href="https://trailos.app" class="project-link" target="_blank">Visit WildLog →</a>
+        <a href="https://trailos.app" class="project-link" target="_blank">Visit WildLog at TrailOS →</a>
       </div>
       <div class="project-card">
         <div class="project-badge">Live · SaaS</div>
@@ -567,11 +626,11 @@
         <div class="project-suite">TrailOS Suite · Product 2 of 3</div>
         <p class="project-desc">AI-assisted trip planning that cuts through decision fatigue — integrated with WildLog so suggestions are informed by where you've actually been, not generic recommendations.</p>
         <div class="project-tags">
-          <span class="project-tag">Trip Planning</span>
-          <span class="project-tag">AI-Assisted</span>
-          <span class="project-tag">TrailOS Suite</span>
+          <span class="project-tag">AI Planning</span>
+          <span class="project-tag">Cross-product</span>
+          <span class="project-tag">Decision Fatigue</span>
         </div>
-        <a href="https://trailos.app" class="project-link" target="_blank">Visit TripForge →</a>
+        <a href="https://trailos.app" class="project-link" target="_blank">Visit TripForge at TrailOS →</a>
       </div>
     </div>
   </div>
@@ -581,7 +640,8 @@
 <div class="section-wrap" id="experience">
   <div class="section-inner">
     <div class="section-label">Experience</div>
-    <h2>Full history on <a href="https://www.linkedin.com/in/kristen-varona-ba53a51/" target="_blank">LinkedIn →</a></h2>
+    <h2>Work History.</h2>
+    <a href="https://www.linkedin.com/in/kristen-varona-ba53a51/" target="_blank" class="linkedin-aside">Full history on LinkedIn →</a>
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-date">2026 — Present</div>
@@ -641,6 +701,17 @@
     detail.classList.toggle('open', !isOpen);
     btn.textContent = isOpen ? '↓ Details' : '↑ Close';
   }
+
+  function toggleMenu() {
+    document.querySelector('nav').classList.toggle('open');
+  }
+
+  // Close menu when any nav link is tapped
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('nav').classList.remove('open');
+    });
+  });
 </script>
 
 </body>
