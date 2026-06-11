@@ -303,6 +303,16 @@
       border-radius: 50%; background: #2E9E5B;
       animation: pulse 2s ease-in-out infinite;
     }
+    .project-badge--beta {
+      color: #B45309;
+    }
+    .project-badge--beta::before {
+      background: #B45309;
+      animation: none;
+    }
+    .project-card--full {
+      grid-column: 1 / -1;
+    }
     .project-name {
       font-family: 'Playfair Display', serif;
       font-style: italic;
@@ -641,6 +651,18 @@
           <span class="project-tag">Decision Fatigue</span>
         </div>
         <a href="https://trailos.app" class="project-link" target="_blank">Visit TripForge at TrailOS →</a>
+      </div>
+      <div class="project-card project-card--full">
+        <div class="project-badge project-badge--beta">Beta · Not Public</div>
+        <div class="project-name">FlowBIZen</div>
+        <div class="project-suite">AI Flow Coaching · B2B SaaS</div>
+        <p class="project-desc">AI-powered flow coaching for small software teams — analyzes Kanban workflow data to surface prioritized, explainable recommendations that help teams identify bottlenecks, reduce rework, and improve delivery flow.</p>
+        <div class="project-tags">
+          <span class="project-tag">AI Coaching</span>
+          <span class="project-tag">B2B SaaS</span>
+          <span class="project-tag">Workflow Analytics</span>
+          <span class="project-tag">0→1</span>
+        </div>
       </div>
     </div>
   </div>
