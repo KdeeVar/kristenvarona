@@ -379,6 +379,19 @@
       letter-spacing: 0.04em; line-height: 1.75;
     }
 
+    /* ── WHY PM ── */
+    .why-pm-body {
+      max-width: 680px;
+    }
+    .why-pm-body p {
+      font-size: 16px; font-weight: 300;
+      color: var(--muted); line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .why-pm-body p:last-child { margin-bottom: 0; }
+    .why-pm-body strong { color: var(--ink); font-weight: 500; }
+    .why-pm-body em { font-style: italic; color: var(--ink); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--ink);
@@ -452,6 +465,7 @@
 <nav>
   <a href="#" class="nav-logo">Kristen Steffler Varona</a>
   <ul class="nav-links">
+    <li><a href="#why-pm">Why PM</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -498,6 +512,19 @@
   <div class="stat">
     <div class="stat-number">1✦</div>
     <div class="stat-label">Patent — flexible board architecture, Kanban Zone</div>
+  </div>
+</div>
+
+<!-- WHY PM -->
+<div class="section-wrap" id="why-pm">
+  <div class="section-inner">
+    <div class="section-label">Perspective</div>
+    <h2>I started in engineering. The hardest problems were never technical.</h2>
+    <div class="why-pm-body">
+      <p>After years of building software I kept noticing the same pattern: <strong>the wrong thing getting built with great execution. The right thing getting built too late. The customer need getting lost in translation between business and engineering.</strong></p>
+      <p>Those aren't engineering failures. They're upstream decisions — the <em>what</em> — made poorly or not at all. Product management is where I can have the most impact, because defining the what clearly, before anyone starts, is the furthest-reaching decision in software development. Everything downstream depends on getting it right.</p>
+      <p>The engineering background isn't a detour. It's why I can hold both sides of that conversation without losing anything — and why I know exactly what a bad upstream decision costs.</p>
+    </div>
   </div>
 </div>
 
